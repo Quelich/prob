@@ -43,16 +43,21 @@ def get_variance(A, mean):
     return sum / (n - 1)
 
 
-def get_standard_deviation():
-    return 1
+def get_standard_deviation(variance):
+    if variance < 0:
+        raise ValueError("The variance must be greater than zero!")
+    return math.sqrt(variance)
 
 
 # data_10 = [23, 60, 79, 32, 57, 74, 52, 70, 82, 36]
 data_10 = [7.07, 7.00, 7.10, 6.97, 7.00, 7.03, 7.01, 7.01, 6.98, 7.08]
 mean = get_mean(data_10)
-print("mean: ", mean)
 variance = get_variance(data_10, mean)
+std_devi = get_standard_deviation(variance)
+print("mean: ", mean)
 print(f"variance: {variance}")
+print(f"standard deviation: {std_devi}")
+
 
 data_60 = [23, 60, 79, 32, 57, 74, 52, 70, 82,
            36, 80, 77, 81, 95, 41, 65, 92, 85,
